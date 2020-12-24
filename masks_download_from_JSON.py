@@ -10,7 +10,7 @@ from PIL import Image
 
 #-reads JSON file (exported from LabelBox) with URLs of binary masks-
 #-downloads them and sorts them into separate class masks folders-
-#the LabelBox EXPORT JSON file is a LIST OF DICTIONARIES: [ {"name": "Tom", "age": 10}, {"name": "Mark", "age": 5}, {"name": "Pam", "age": 7} ]
+#the LabelBox EXPORT JSON file is a LIST OF DICTIONARIES
 
 with open('PATH/LabelBox_export_25.8.json') as f:
   exp_file = json.load(f)

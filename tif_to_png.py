@@ -13,7 +13,9 @@ for file in glob.glob('PATH/images_tif/*.tif'):
     img = Image.open(file)                                                      
     img.save(file.replace('tif', 'png'))
 
+
 #-images to tiles slicer-
+
 tile_dim = 800
 img_no=0
 for file in glob.glob('PATH/images_png/*.png'):

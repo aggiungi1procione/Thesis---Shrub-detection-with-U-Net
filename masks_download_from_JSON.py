@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
 Created on Tue Aug 25 10:49:34 2020
 
 @author: Bibs
@@ -13,7 +11,8 @@ from PIL import Image
 #-reads JSON file (exported from LabelBox) with URLs of binary masks-
 #-downloads them and sorts them into separate class masks folders-
 #the LabelBox EXPORT JSON file is a LIST OF DICTIONARIES: [ {"name": "Tom", "age": 10}, {"name": "Mark", "age": 5}, {"name": "Pam", "age": 7} ]
-with open('E:/Bianka_Thesis/LabelBox_export_25.8.json') as f:
+
+with open('PATH/LabelBox_export_25.8.json') as f:
   exp_file = json.load(f)
   
 for x in exp_file:
@@ -21,12 +20,14 @@ for x in exp_file:
         combo = {'ID': x['External ID'],
                         'Mask': y['instanceURI'],
                         'Name': y['title']}
-        path = 'E:/Bianka_Thesis/test1/test1_mask_' + combo['Name'] + '/' + combo['ID'].split('.')[0] + '_' + combo['Name'] + '.png'
+        path = 'PATH/test1/test1_mask_' + combo['Name'] + '/' + combo['ID'].split('.')[0] + '_' + combo['Name'] + '.png'
         urllib.request.urlretrieve(combo['Mask'], path)
 
+
 #-slicer of image tiles and masks to smaller tiles acceptable by ML model-
+
 model_tile_dim = 100        #dimension of tiles for the used ML model
-for folder in glob.glob('E:/Bianka_Thesis/test1/*'):
+for folder in glob.glob('PATH/test1/*'):
     for file in glob.glob(folder + '/*.png'):        
         img = Image.open(file)  
         if (img.height%model_tile_dim) == 0:

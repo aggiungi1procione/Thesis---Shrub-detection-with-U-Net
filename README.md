@@ -1,1 +1,1 @@
-# Thesis---Shrub-detection-with-U-Net
+# Thesis: Shrub-detection-with-U-Net
